@@ -1,0 +1,27 @@
+{
+  "name": "angular-fatfractal-js-sdk",
+  "version": "0.1.0",
+  "homepage": "http://fatfractal.com",
+  "authors": [
+    "David Wells <dave@fatfractal.com>"
+  ],
+  "description": "AngularJS Service for FatFractal JavaScript SDK",
+  "main": "js/FatFractalService.js",
+  "keywords": [
+    "FatFractal",
+    "NoServer",
+    "BAAS",
+    "AngularJS"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fatfractal-js-sdk": "~1.5.0"
+  }
+}
