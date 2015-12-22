@@ -22,6 +22,7 @@
     "tests"
   ],
   "dependencies": {
-    "fatfractal-js-sdk": "~1.5.0"
+    "angular": "^1.0.7",
+    "fatfractal-js-sdk": "^1.5.0"
   }
 }
