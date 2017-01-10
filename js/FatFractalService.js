@@ -2,8 +2,34 @@
 
 /* Services */
 angular.module('ff.FatFractalService', []).
-    factory('FatFractal', ['$rootScope', '$q', '$location', '$log', function($rootScope, $q, $location, $log) {
+provider('FatFractal', {
+    baseUrl: null,
+    simulateCookies: false,
+    debug: false,
+    serviceDebug: false,
+
+    setBaseUrl: function(baseUrl) {
+        this.baseUrl = baseUrl
+    },
+    setSimulateCookies: function(simulateCookies) {
+        this.simulateCookies = simulateCookies;
+    },
+    setDebug: function(debug) {
+        this.debug = debug;
+    },
+    setServiceDebug: function(serviceDebug) {
+        this.serviceDebug = serviceDebug;
+    },
+
+    $get: ['$rootScope', '$q', '$location', '$log', function ($rootScope, $q, $location, $log) {
         var ff = new FatFractalService($rootScope, $q, $location, $log);
+
+        if (this.baseUrl) {
+            ff.setBaseUrl(this.baseUrl);
+        }
+        ff.setSimulateCookies(this.simulateCookies);
+        ff.setDebug(this.debug);
+        ff.setServiceDebug(this.debug);
 
         // TODO: get cookies working
 
@@ -11,7 +37,8 @@ angular.module('ff.FatFractalService', []).
 //        ff.setServiceDebug(true);   // TEST
         ff.loggedIn();  // force FF to look for session info
         return ff;
-    }]);
+    }]
+});
 
 function FatFractalService(scope, $q, $location, $log) {
     var self = this;
